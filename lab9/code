@@ -1,0 +1,189 @@
+app.jsx
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Home from './Home.jsx';
+import About from './About.jsx';
+import Contact from './Contact.jsx';
+import './index.css';
+
+function App() {
+  const LinkStyle = ({ isActive }) => ({
+    margin: '0 10px',
+    textDecoration: 'none',
+    color: isActive ? 'blue' : 'black',
+    fontWeight: isActive ? 'bold' : 'normal'
+  });
+
+  return (
+    <div>
+      <nav style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+        <NavLink to="/" style={LinkStyle} end>Home</NavLink>
+        <NavLink to="/about" style={LinkStyle}>About</NavLink>
+        <NavLink to="/contact" style={LinkStyle}>Contact</NavLink>
+      </nav>
+      <hr />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+home.jsx
+  import React from 'react';
+function Home() {
+return (
+    <div style={{ textAlign: 'center' }}>
+      <h2>Home Page</h2>
+      <img 
+        src="https://tse2.mm.bing.net/th/id/OIP.0eJHUgXnKbYdR7CQguEckAHaEM?rs=1&pid=ImgDetMain&o=7&rm=3" 
+        alt="Home" 
+        style={{ marginTop: '20px', borderRadius: '10px' }}
+      />
+    </div>
+  );
+}
+
+export default Home;
+
+
+
+
+contact.jsx
+  import React from 'react';
+
+function Contact() {
+  return (
+    <div style={{ textAlign: 'center', marginTop: '40px' }}>
+      <h2>Contact Page</h2>
+
+      <p style={{ marginTop: '20px' }}>
+        📍 Address: Udupi,Karnataka, India
+      </p>
+
+      <p>
+        📞 Phone: +91 9591412324
+      </p>
+
+      <p>
+        📧 Email: sinchana2250@gmail.com
+      </p>
+
+      <p>
+        🕒 Working Hours: Mon - Fri (9:00 AM - 6:00 PM)
+      </p>
+    </div>
+  );
+}
+
+export default Contact;
+
+
+
+main.jsx
+  import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter} from
+'react-router-dom';
+import App from './App.jsx';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+  <App/>
+  </BrowserRouter>
+);
+
+
+
+index.jsx
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #ffffff;
+  padding: 15px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Links */
+nav a {
+  margin: 0 15px;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+nav a:hover {
+  color: blue;
+}
+
+/* Active link (react-router applies this class) */
+nav a.active {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Page content */
+h2 {
+  margin-top: 40px;
+  font-size: 28px;
+  color: #333;
+}
+
+
+
+about.jsx
+import React from 'react';
+
+function About() {
+  return (
+    <div style={{ padding: '30px', maxWidth: '800px', margin: 'auto', textAlign: 'center' }}>
+      <h2>About Us</h2>
+
+      <p style={{ marginTop: '15px', lineHeight: '1.6' }}>
+        Welcome to our website! We are passionate about creating beautiful and user-friendly web applications.
+        Our goal is to deliver high-quality experiences using modern technologies like React.
+      </p>
+
+      <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
+        <div>
+          <h3> Mission</h3>
+          <p>Build simple and powerful web apps.</p>
+        </div>
+
+        <div>
+          <h3> Vision</h3>
+          <p>Make technology accessible to everyone.</p>
+        </div>
+
+        <div>
+          <h3>Values</h3>
+          <p>Innovation, Quality, and Trust.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default About;
